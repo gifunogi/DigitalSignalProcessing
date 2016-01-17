@@ -6,7 +6,6 @@ u"""
 
 import unittest
 
-import os
 import sys
 import re
 import MeCab
@@ -38,8 +37,8 @@ class PrepareChain(object):
 	BEGIN = u"__BEGIN_SENTENCE__"
 	END = u"__END_SENTENCE__"
 
-	DB_PATH = os.getcwd() + "/GenerateText/chain.db"
-	DB_SCHEMA_PATH = os.getcwd() + "/GenerateText/schema.sql"
+	DB_PATH = "chain.db"
+	DB_SCHEMA_PATH = "schema.sql"
 
 	def __init__(self, text):
 		u"""

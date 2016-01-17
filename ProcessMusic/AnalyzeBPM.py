@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 MIN_BPM = 60
 MAX_BPM = 240
+BPM_RANGE = range(MIN_BPM, MAX_BPM)
 
 def main():
     # データ読み込み
@@ -70,7 +71,7 @@ class AnalyzeBPM(object):
     # 各bpmでのマッチ度リストを返す
     def calc_all_match(self, data):
         # 各bpmにおいてmatch度を計算
-        match_list = np.array([self.calc_match_bpm(data, bpm) for bpm in range(MIN_BPM, MAX_BPM)])
+        match_list = np.array([self.calc_match_bpm(data, bpm) for bpm in BPM_RANGE])
 
         return match_list
 
