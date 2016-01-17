@@ -3,6 +3,7 @@
 
 音声信号を入力することでセンターキャンセル法から音声信号のオフボーカル化(カラオケ音源化)を行って，自動で歌詞の生成を行うGUIプログラムです．音源はwav(WAVE Formatファイル)のみ対応しています．
 ###karaoke.py
+![インターフェース](https://googledrive.com/host/0B1IViKha93aRMmpzemlVcEtTa00/GUI.png)
 GUI本体プログラムです．
 `python karaoke.py`  
 のコマンドで起動します．[wxPython](http://www.wxpython.org/)モジュールを利用しています．
