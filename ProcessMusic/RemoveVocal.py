@@ -1,4 +1,6 @@
 # coding: utf-8
+# センターキャンセル法によるwav音源のカラオケ化
+
 import sys
 import os.path
 import numpy as np

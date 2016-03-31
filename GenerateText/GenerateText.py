@@ -1,3 +1,7 @@
+"""
+以下ソースコード流用部分
+"""
+
 # coding:utf-8
 
 u"""
@@ -152,6 +156,12 @@ class GenerateText(object):
         chain_index = random.choice(probability)
 
         return chains[chain_index]
+
+
+"""
+以上ソースコード流用部分
+"""
+
 
 if __name__ == '__main__':
     generator = GenerateText()

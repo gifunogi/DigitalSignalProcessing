@@ -1,5 +1,6 @@
-#!/usr/bin/env python
 # coding: utf-8
+# インターフェースおよび全体処理
+
 import os
 import wx
 import wx.media
@@ -49,6 +50,12 @@ class MyFrame(wx.Frame):
         self.bpmMark = wx.Panel(self.panel, -1, pos=(600, 280), size=(20, 20))
         self.bpmMark.SetBackgroundColour("#00FF00")
 
+
+        """
+        以下ソースコード流用部分
+        """
+
+
         self.slider = wx.Slider(self.bg, wx.ID_ANY, 1000000, 0, 1000000,
             pos=(20, 320), size=(600, -1), style=wx.SL_HORIZONTAL|wx.SL_AUTOTICKS|wx.SL_LABELS)
         self.slider.Bind(wx.EVT_SLIDER, self.onSeek)
@@ -71,6 +78,12 @@ class MyFrame(wx.Frame):
         # self.Maximize(True)
         self.Show(True)
 
+
+        """
+        以上ソースコード流用部分
+        """
+
+
         font = wx.Font(30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         self.top_lyric = LyricObject(self.panel, font, (0, 0))
         self.bottom_lyric = LyricObject(self.panel, font, (0, 160))
@@ -78,7 +91,7 @@ class MyFrame(wx.Frame):
             self.top_lyric.lstring = shapeLyric(GenerateText().generate())
         while len(self.bottom_lyric.lstring) > 32:
             self.bottom_lyric.lstring = shapeLyric(GenerateText().generate())
-        # topとbottomの切り替え(要調整)
+        # topとbottomの切り替え
         self.lnum = 0
 
         # True:再生 False:停止
@@ -92,7 +105,7 @@ class MyFrame(wx.Frame):
         offset = self.mc.Tell()
         self.slider.SetValue(offset)
 
-        # 出力文字数(要調整)
+        # 出力文字数
         top_n = self.top_lyric.lcnt/2*len(self.top_lyric.lstring)/(6000/self.bpm)
         bottom_n = self.bottom_lyric.lcnt/2*len(self.bottom_lyric.lstring)/(6000/self.bpm)
         self.top_lyric.lstextbk.SetLabel(self.top_lyric.lstring)
@@ -111,7 +124,7 @@ class MyFrame(wx.Frame):
         else:
              self.bpmMark.SetBackgroundColour("#000000")
 
-    # 歌詞出力周りの処理(要調整)
+    # 歌詞出力周りの処理
     def processLyric(self, l):
         if l.lcnt/2*len(l.lstring)/(6000/self.bpm) >= len(l.lstring):
             l.lstring = shapeLyric(GenerateText().generate())
@@ -119,6 +132,12 @@ class MyFrame(wx.Frame):
             self.lnum += 1
         elif self.mediaFlag:
             l.lcnt += 1
+
+
+        """
+        以下ソースコード流用部分
+        """
+
 
     def onLoadFile(self, evt):
         mask = "Media Files|*.wav|All (.*)|*.*"
@@ -163,6 +182,10 @@ class MyFrame(wx.Frame):
         """allows dragging the slider pointer to this position"""
         offset = self.slider.GetValue()
         self.mc.Seek(offset)
+
+        """
+        以上ソースコード流用部分
+        """
 
     # オフボーカル音源を生成しパスを返す
     def getRemovedPath(self, path):
